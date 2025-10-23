@@ -14,6 +14,8 @@ interface PixelTransitionProps {
   fillHeight?: boolean;
   rounded?: boolean;
   bordered?: boolean;
+  active?: boolean;
+  onActiveChange?: (active: boolean) => void;
 }
 
 const PixelTransition: React.FC<PixelTransitionProps> = ({
@@ -27,14 +29,18 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
   aspectRatio = '100%',
   fillHeight = false,
   rounded = true,
-  bordered = true
+  bordered = true,
+  active,
+  onActiveChange
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const pixelGridRef = useRef<HTMLDivElement | null>(null);
   const activeRef = useRef<HTMLDivElement | null>(null);
   const delayedCallRef = useRef<gsap.core.Tween | null>(null);
 
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [internalActive, setInternalActive] = useState<boolean>(false);
+  const isControlled = typeof active === 'boolean';
+  const isActive = isControlled ? (active as boolean) : internalActive;
 
   const isTouchDevice =
     typeof window !== 'undefined' &&
@@ -67,7 +73,7 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
   }, [gridSize, pixelColor]);
 
   const animatePixels = (activate: boolean): void => {
-    setIsActive(activate);
+    if (!isControlled) setInternalActive(activate);
 
     const pixelGridEl = pixelGridRef.current;
     const activeEl = activeRef.current;
@@ -114,13 +120,23 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
   };
 
   const handleMouseEnter = (): void => {
-    if (!isActive) animatePixels(true);
+    if (!isTouchDevice) {
+      if (isControlled) onActiveChange?.(true);
+      else if (!isActive) animatePixels(true);
+    }
   };
   const handleMouseLeave = (): void => {
-    if (isActive) animatePixels(false);
+    if (!isTouchDevice) {
+      if (isControlled) onActiveChange?.(false);
+      else if (isActive) animatePixels(false);
+    }
   };
   const handleClick = (): void => {
-    animatePixels(!isActive);
+    // keep click for non-touch fallback only
+    if (!isTouchDevice) {
+      if (isControlled) onActiveChange?.(!isActive);
+      else animatePixels(!isActive);
+    }
   };
 
   // keyboard focus handlers
@@ -130,6 +146,12 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
   const handleBlur = (): void => {
     if (!isTouchDevice) handleMouseLeave();
   };
+
+  // Animate when the controlled/derived active state changes
+  useEffect(() => {
+    animatePixels(isActive);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isActive]);
 
   return (
     <div
@@ -147,7 +169,14 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
       style={style}
       onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
       onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
-      onClick={isTouchDevice ? handleClick : undefined}
+      onClick={!isTouchDevice ? handleClick : undefined}
+      onPointerDown={(e) => {
+        // toggle immediately on first touch contact
+        if ((e as any).pointerType === 'touch') {
+          if (isControlled) onActiveChange?.(!isActive);
+          else animatePixels(!isActive);
+        }
+      }}
       onFocus={!isTouchDevice ? handleFocus : undefined}
       onBlur={!isTouchDevice ? handleBlur : undefined}
       tabIndex={0}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PixelTransition from './PixelTransition';
 import embiotinImg from '../assets/embiotin.jpg';
 import emflatImg from '../assets/emflat.jpg';
@@ -38,6 +38,24 @@ const products: Product[] = [
 ];
 
 const Products: React.FC = () => {
+  const [isTouch, setIsTouch] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const check = () => {
+      try {
+        const coarse = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+        const touchCapable = typeof window !== 'undefined' && ('ontouchstart' in window || (navigator as any).maxTouchPoints > 0);
+        setIsTouch(Boolean(coarse || touchCapable));
+      } catch {
+        setIsTouch(false);
+      }
+    };
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
     <section id="products" className="bg-cyan-50 fade-up">
       <div className="flex flex-col w-full min-h-[90vh] md:min-h-screen">
@@ -130,6 +148,11 @@ const Products: React.FC = () => {
                   fillHeight
                   rounded={false}
                   bordered={false}
+                  active={isTouch ? i === activeIndex : undefined}
+                  onActiveChange={(next) => {
+                    if (!isTouch) return;
+                    setActiveIndex(next ? i : null);
+                  }}
                 />
               </div>
             );
