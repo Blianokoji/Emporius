@@ -44,10 +44,10 @@ const About: React.FC = () => {
       >
         <div className="relative z-10 mx-auto px-6 py-20 max-w-6xl space-y-10">
           <div>
-            <h2 className="text-4xl font-bold text-white drop-shadow-md">
+            <h2 className="text-4xl font-bold text-white drop-shadow-md text-raise">
               Where Quality Meets Care
             </h2>
-            <p className="max-w-3xl mx-auto mt-4 text-gray-100/90 leading-relaxed">
+            <p className="max-w-3xl mx-auto mt-4 text-gray-100/90 leading-relaxed text-raise">
               Founded in Kochi, Kerala, by five partners with deep expertise across the healthcare ecosystem,
               Emporis Health Care stands for uncompromising quality, affordability, and continuous innovation.
             </p>
