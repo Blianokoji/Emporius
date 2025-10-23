@@ -2,7 +2,7 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white text-center fade-up">
+    <section id="about" className="py-20 bg-teal-50 text-center fade-up">
       <h2 className="text-4xl font-bold text-teal-700 mb-6">
         Where Quality Meets Care
       </h2>
@@ -29,9 +29,9 @@ const About: React.FC = () => {
         ].map((card, i) => (
           <div
             key={i}
-            className="p-6 bg-teal-50 rounded-2xl shadow hover:shadow-xl transition-transform hover:-translate-y-2"
+            className="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition-transform hover:-translate-y-2"
           >
-            <h3 className="text-xl font-semibold text-teal-600 mb-2">
+            <h3 className="text-xl font-semibold text-teal-700 mb-2">
               {card.title}
             </h3>
             <p className="text-gray-700">{card.desc}</p>
