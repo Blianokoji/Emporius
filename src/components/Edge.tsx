@@ -4,7 +4,7 @@ const Edge: React.FC = () => {
   return (
     <section
       id="edge"
-      className="py-20 bg-gradient-to-r from-teal-600 to-teal-500 text-white text-center fade-up"
+  className="py-20 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white text-center fade-up"
     >
       <h2 className="text-4xl font-bold mb-4">The Emporis Edge</h2>
       <p className="max-w-3xl mx-auto text-lg leading-relaxed">

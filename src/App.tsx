@@ -4,7 +4,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Ambitions from "./components/Ambitions";
 import Products from "./components/Products";
 import Edge from "./components/Edge";
 import Contact from "./components/Contact";
@@ -40,8 +39,7 @@ const App: React.FC = () => {
     <div className="font-sans text-slate-800 bg-white">
       <Navbar />
       <Hero />
-  <About />
-  <Ambitions />
+      <About />
       <Products />
       <Edge />
       <Contact />

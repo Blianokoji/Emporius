@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from '../assets/emporis_logo.png';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,20 +20,23 @@ const Navbar: React.FC = () => {
       }}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-8 py-4">
-        <h1
-          className={`text-lg sm:text-xl font-semibold tracking-wide transition-colors duration-500 ${
-            scrolled ? "text-gray-900" : "text-black"
-          }`}
-        >
-          Emporis Health Care
-        </h1>
+        <div className="flex items-center gap-3">
+          <img src={logo} alt="Emporis logo" className="w-8 h-8 object-contain" />
+          <h1
+            className={`text-lg sm:text-xl font-semibold tracking-wide transition-colors duration-500 ${
+              scrolled ? "text-gray-900" : "text-black"
+            }`}
+          >
+            Emporis Health Care
+          </h1>
+        </div>
 
         <ul className="hidden md:flex space-x-8">
-          {["Home", "About", "Vision", "Products", "Contact"].map((link) => (
+          {["Home", "About", "Products", "Contact"].map((link) => (
             <li key={link}>
-              <a
+                <a
                 href={`#${link.toLowerCase()}`}
-                className={`transition-colors duration-300 hover:text-teal-500 ${
+                className={`transition-colors duration-300 hover:text-cyan-500 ${
                   scrolled ? "text-gray-700" : "text-black"
                 }`}
               >
