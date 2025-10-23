@@ -88,50 +88,51 @@ const Products: React.FC = () => {
           );
 
             const second = (
-            <div className="absolute inset-0 w-full h-full">
-              <div className="absolute inset-0 bg-white/60 backdrop-blur-lg border border-cyan-200/50" />
-
-              <div className="relative z-10 flex h-full w-full p-7 md:p-8 text-raise">
-                <div className="w-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <h3 className="text-3xl font-extrabold text-cyan-700">{p.name}</h3>
-                      {/* {p.comingSoon && (
-                        <span className="bg-amber-500/90 text-white text-[10px] tracking-wide uppercase font-semibold px-2.5 py-1 rounded-full shadow">
-                          Coming Soon
-                        </span>
-                      )} */}
+              <div className="absolute inset-0 w-full h-full">
+                {/* Use GlassCard for dynamic contrast on overlay */}
+                <div className="absolute inset-0">
+                  <div className="relative h-full w-full rounded-none">
+                    {/* Inline glass with adjustable contrast; lighter base to ensure readability on images */}
+                    <div className="relative h-full w-full bg-white/60 backdrop-blur-lg border border-cyan-200/50 text-raise">
+                      <div className="relative z-10 flex h-full w-full p-7 md:p-8">
+                        <div className="w-full flex flex-col justify-between">
+                          <div>
+                            <div className="flex items-center gap-3">
+                              <h3 className="text-3xl font-extrabold text-cyan-700">{p.name}</h3>
+                            </div>
+                            <p className="text-gray-700 mt-3 text-base md:text-lg">{p.tagline}</p>
+                            <p className="text-gray-700 mt-4 text-sm md:text-base leading-relaxed">{p.desc}</p>
+                          </div>
+                          <div className="mt-6 flex justify-end">
+                            {p.comingSoon ? (
+                              <button
+                                className="px-4 py-2 bg-gray-300 text-gray-600 rounded-full cursor-not-allowed shadow-inner"
+                                disabled
+                                aria-disabled
+                                title="This product is coming soon"
+                              >
+                                Coming Soon
+                              </button>
+                            ) : p.anchor ? (
+                              <a
+                                href={`#${p.anchor}`}
+                                className="px-5 py-2.5 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition"
+                              >
+                                Learn More
+                              </a>
+                            ) : (
+                              <button className="px-5 py-2.5 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition">
+                                Learn More
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-gray-700 mt-3 text-base md:text-lg">{p.tagline}</p>
-                    <p className="text-gray-700 mt-4 text-sm md:text-base leading-relaxed">{p.desc}</p>
-                  </div>
-                  <div className="mt-6 flex justify-end">
-                    {p.comingSoon ? (
-                      <button
-                        className="px-4 py-2 bg-gray-300 text-gray-600 rounded-full cursor-not-allowed shadow-inner"
-                        disabled
-                        aria-disabled
-                        title="This product is coming soon"
-                      >
-                        Coming Soon
-                      </button>
-                    ) : p.anchor ? (
-                      <a
-                        href={`#${p.anchor}`}
-                        className="px-5 py-2.5 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition"
-                      >
-                        Learn More
-                      </a>
-                    ) : (
-                      <button className="px-5 py-2.5 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition">
-                        Learn More
-                      </button>
-                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          );
+            );
 
             return (
               <div
