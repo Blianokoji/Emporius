@@ -25,16 +25,16 @@ const Contact: React.FC = () => {
     try {
       // EmailJS configuration
       // You need to replace these with your actual EmailJS credentials
-      const serviceId = "service_guj89f5"; // Get from emailjs.com
-      const templateId = "template_hnjsu6r"; // Get from emailjs.com
-      const publicKey = "QX5kLXS5J1ya9LfnQ"; // Get from emailjs.com
+      const serviceId = import.meta.env.VITE_SERVICE_ID; // Get from emailjs.com
+      const templateId = import.meta.env.VITE_TEMPLATE_ID; // Get from emailjs.com
+      const publicKey = import.meta.env.VITE_PUBLIC_KEY; // Get from emailjs.com
 
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: "blesseneby007@gmail.com",
+        to_email: import.meta.env.VITE_TO_EMAIL,
       };
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);

@@ -11,26 +11,30 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 backdrop-filter backdrop-blur-sm bg-opacity-10 ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 backdrop-blur-md ${
+        scrolled ? "bg-white/80 shadow-md" : "bg-transparent shadow-none"
       }`}
+      style={{
+        transitionProperty: "background-color, box-shadow, opacity, transform",
+      }}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-3 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-8 py-4">
         <h1
-          className={`text-xl sm:text-xl md:text-xl font-bold mr-auto ${
-            scrolled ? "text-teal-400" : "text-white drop-shadow-lg"
+          className={`text-lg sm:text-xl font-semibold tracking-wide transition-colors duration-500 ${
+            scrolled ? "text-gray-900" : "text-black"
           }`}
         >
           Emporis Health Care
         </h1>
-        <ul className={`hidden md:flex space-x-8`}>
+
+        <ul className="hidden md:flex space-x-8">
           {["Home", "About", "Vision", "Products", "Contact"].map((link) => (
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
-                className={`hover:text-teal-500 ${
-                  scrolled ? "text-slate-700" : "text-white drop-shadow-lg"
-                } transition-colors`}
+                className={`transition-colors duration-300 hover:text-teal-500 ${
+                  scrolled ? "text-gray-700" : "text-black"
+                }`}
               >
                 {link}
               </a>
