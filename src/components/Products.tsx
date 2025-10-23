@@ -39,10 +39,16 @@ const products: Product[] = [
 
 const Products: React.FC = () => {
   return (
-    <section id="products" className="py-28 md:py-32 bg-cyan-50 text-center fade-up">
-      <h2 className="text-5xl font-extrabold text-cyan-700 mb-14">Our Products</h2>
-      <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto px-6 md:px-8">
-        {products.map((p, i) => {
+    <section id="products" className="bg-cyan-50 fade-up">
+      <div className="flex flex-col w-full min-h-[90vh] md:min-h-screen">
+        {/* Top bar spanning full width (not vertically) */}
+        <div className="px-6 md:px-8 py-10 text-center bg-cyan-900 text-white">
+          <h2 className="text-5xl font-extrabold">Our Products</h2>
+        </div>
+
+        {/* Remaining area: split into three equal panels */}
+        <div className="flex-1 flex flex-col md:flex-row w-full gap-0">
+          {products.map((p, i) => {
           const first = (
             <div
               className="absolute inset-0 w-full h-full flex items-center justify-center p-6"
@@ -51,9 +57,9 @@ const Products: React.FC = () => {
               <img
                 src={p.image}
                 alt={p.name}
-                className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl"
+                className="pointer-events-none absolute inset-0 w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
               
               <div className="relative z-10 text-center">
                 <h3 className="text-3xl font-bold text-white drop-shadow-md transition-opacity duration-300 group-hover:opacity-0 group-data-[active=true]:opacity-0">
@@ -63,9 +69,9 @@ const Products: React.FC = () => {
             </div>
           );
 
-          const second = (
+            const second = (
             <div className="absolute inset-0 w-full h-full">
-              <div className="absolute inset-0 rounded-2xl bg-white/60 backdrop-blur-lg border border-cyan-200/50" />
+              <div className="absolute inset-0 bg-white/60 backdrop-blur-lg border border-cyan-200/50" />
 
               <div className="relative z-10 flex h-full w-full p-7 md:p-8 text-raise">
                 <div className="w-full flex flex-col justify-between">
@@ -109,18 +115,26 @@ const Products: React.FC = () => {
             </div>
           );
 
-          return (
-            <PixelTransition
-              key={i}
-              className="w-full"
-              firstContent={first}
-              secondContent={second}
-              aspectRatio={'120%'}
-              pixelColor={'#e6f7ff'}
-              animationStepDuration={0.35}
-            />
-          );
-        })}
+            return (
+              <div
+                key={i}
+                className="w-full flex-none h-[420px] md:flex-1 md:h-auto md:min-h-0"
+              >
+                <PixelTransition
+                  className="w-full h-full"
+                  firstContent={first}
+                  secondContent={second}
+                  aspectRatio={'120%'}
+                  pixelColor={'#e6f7ff'}
+                  animationStepDuration={0.35}
+                  fillHeight
+                  rounded={false}
+                  bordered={false}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -11,6 +11,9 @@ interface PixelTransitionProps {
   className?: string;
   style?: CSSProperties;
   aspectRatio?: string;
+  fillHeight?: boolean;
+  rounded?: boolean;
+  bordered?: boolean;
 }
 
 const PixelTransition: React.FC<PixelTransitionProps> = ({
@@ -21,7 +24,10 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
   animationStepDuration = 0.3,
   className = '',
   style = {},
-  aspectRatio = '100%'
+  aspectRatio = '100%',
+  fillHeight = false,
+  rounded = true,
+  bordered = true
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const pixelGridRef = useRef<HTMLDivElement | null>(null);
@@ -133,9 +139,9 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
         relative
         group
         overflow-hidden
-        rounded-2xl
-        border-2
-        border-white/10
+        ${rounded ? 'rounded-2xl' : ''}
+        ${bordered ? 'border-2 border-white/10' : ''}
+        ${fillHeight ? 'h-full' : ''}
       `}
       data-active={isActive ? 'true' : 'false'}
       style={style}
@@ -147,7 +153,7 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
       tabIndex={0}
       role="button"
     >
-      <div style={{ paddingTop: aspectRatio }} />
+  {!fillHeight && <div style={{ paddingTop: aspectRatio }} />}
 
       <div className="absolute inset-0 w-full h-full">{firstContent}</div>
 
