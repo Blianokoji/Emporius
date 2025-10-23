@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Products from "./components/Products";
+import EmbiotinSection from "./components/EmbiotinSection";
 import Edge from "./components/Edge";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -41,6 +42,7 @@ const App: React.FC = () => {
       <Hero />
       <About />
       <Products />
+  <EmbiotinSection />
       <Edge />
       <Contact />
       <Footer />

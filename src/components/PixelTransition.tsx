@@ -131,11 +131,13 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
       className={`
         ${className}
         relative
+        group
         overflow-hidden
         rounded-2xl
         border-2
         border-white/10
       `}
+      data-active={isActive ? 'true' : 'false'}
       style={style}
       onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
       onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
