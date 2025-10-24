@@ -85,7 +85,7 @@ const Products: React.FC = () => {
                         <div className="mt-4 flex justify-end">
                           {p.comingSoon ? (
                             <button className="px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-sm cursor-not-allowed" disabled>
-                              Coming Soon
+                              Launching Soon
                             </button>
                           ) : p.anchor ? (
                             <a href={`#${p.anchor}`} className="px-3 py-1.5 bg-cyan-600 text-white rounded-full text-sm">
