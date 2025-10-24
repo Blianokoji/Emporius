@@ -22,23 +22,24 @@ const Hero: React.FC = () => {
       {/* dark overlay for readable text */}
       <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
       <div className="relative z-10 w-full">
-        <div className="max-w-5xl mx-6 md:mx-12 lg:mx-20 py-24">
-          <div className="w-full md:w-2/3 lg:w-1/2 text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold fade-up">
+        <div className="max-w-6xl mx-6 md:mx-12 lg:mx-20 py-24">
+          <div className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 text-left pl-6 md:pl-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight fade-up text-raise drop-shadow-lg pb-2 md:pb-3">
               Redefining Wellness. Restoring Trust.
             </h1>
 
-            <p className="max-w-xl mt-6 text-gray-100 fade-up">
-              We are driven by science and compassion, committed to building a healthier tomorrow through innovation, integrity, and excellence.
+            <p className="max-w-4xl mt-5 pb-2 md:pb-3 text-white text-base md:text-xl lg:text-2xl leading-relaxed fade-up text-raise">
+              We are driven by science and compassion, committed to building a healthier tomorrow through innovation,
+              integrity, and excellence.
             </p>
 
             <button
               onClick={handleNavigateProducts}
-              className="mt-8 inline-flex items-center gap-3 px-6 py-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition-all duration-300 group"
+              className="group mt-8 inline-flex items-center gap-3 px-7 py-3 md:px-9 md:py-4 bg-cyan-600/95 hover:bg-cyan-500/95 text-white text-base md:text-lg rounded-lg shadow-xl ring-1 ring-cyan-300/30 transition-transform transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-400/30"
             >
-              <span>Explore Our Products</span>
+              <span className="font-semibold">Explore Our Products</span>
               <svg
-                className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-2"
+                className="w-5 h-5 md:w-6 md:h-6 transform transition-transform duration-300 group-hover:translate-x-2"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

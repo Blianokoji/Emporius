@@ -4,7 +4,7 @@ import edgeImg from "../assets/emporis_edge.jpg";
 
 const Edge: React.FC = () => {
   return (
-  <section id="edge" className="relative bg-cyan-50 fade-up min-h-screen pt-24">
+  <section id="edge" className="relative bg-cyan-50 fade-up min-h-[80vh]">
       <div className="grid md:grid-cols-2 min-h-[calc(100vh-6rem)]">
         {/* Left half: Dark cyan spotlight content */}
         <div className="relative h-full">

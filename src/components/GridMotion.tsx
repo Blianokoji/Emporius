@@ -102,7 +102,7 @@ const GridMotion: React.FC<GridMotionProps> = ({ items = [], gradientColor = 'rg
                   const content = combinedItems[rowIndex * 7 + itemIndex];
                   return (
                     <div key={itemIndex} className="relative">
-                      <div className="relative w-full h-full overflow-hidden rounded-[10px] bg-[#0b0b0b] flex items-center justify-center text-white text-[1.1rem]">
+                      <div className="relative w-full h-full overflow-hidden rounded-[10px] bg-[#efefef] flex items-center justify-center text-black font-bold text-[1.1rem]">
                         {typeof content === 'string' && isImage(content) ? (
                           <div
                             className="w-full h-full bg-cover bg-center absolute top-0 left-0 opacity-80"
@@ -120,6 +120,9 @@ const GridMotion: React.FC<GridMotionProps> = ({ items = [], gradientColor = 'rg
           </div>
         </div>
       </div>
+
+      {/* semi-opaque overlay between the animated grid and the children to improve contrast */}
+      <div className="absolute inset-0 z-0 bg-white/60 pointer-events-none" aria-hidden="true" />
 
       {/* Overlay content */}
       <div className="relative z-10">{children}</div>

@@ -42,7 +42,8 @@ const MediaFeature: React.FC<MediaFeatureProps> = ({
         )}
         <div className={`grid md:grid-cols-2 gap-10 items-start`}>
           {imageFirst && (
-            <div className="relative rounded-2xl shadow-lg overflow-hidden bg-slate-50 flex items-center justify-center">
+            /* Render image directly without framing so it appears simple and edge-to-edge */
+            <div className="relative overflow-hidden flex items-center justify-center">
               <img src={imageSrc} alt={imageAlt} className={`${imgClass}`} />
             </div>
           )}
@@ -52,7 +53,7 @@ const MediaFeature: React.FC<MediaFeatureProps> = ({
           </div>
 
           {!imageFirst && (
-            <div className="relative order-first md:order-none rounded-2xl shadow-lg overflow-hidden bg-slate-50 flex items-center justify-center">
+            <div className="relative order-first md:order-0 overflow-hidden flex items-center justify-center">
               <img src={imageSrc} alt={imageAlt} className={`${imgClass}`} />
             </div>
           )}

@@ -11,12 +11,12 @@ const GlassCard: React.FC<GlassCardProps> = ({ children, className = "" }) => {
   return (
     <div
       ref={cardRef}
-      className={`relative rounded-2xl p-6 backdrop-blur-xl bg-white/10 border border-white/25 shadow-xl overflow-hidden transition-colors duration-200 text-gray-100 text-raise ${className}`}
+      className={`relative rounded-2xl p-6 backdrop-blur-xl bg-white/30 border border-white/40 shadow-lg overflow-hidden transition-colors duration-200 text-black ${className}`}
     >
-      {/* Strong, neutral scrim to guarantee readability over mixed backgrounds */}
+      {/* Light, frosted white scrim to create a pale glassy card so text can be black */}
       <div className="absolute inset-0 pointer-events-none rounded-2xl">
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/15 to-white/5" />
+        <div className="absolute inset-0 bg-white/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-white/10" />
       </div>
       <div className="relative z-10">{children}</div>
     </div>

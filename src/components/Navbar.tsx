@@ -12,8 +12,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 backdrop-blur-md ${
-        scrolled ? "bg-white/80 shadow-md" : "bg-transparent shadow-none"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
+        scrolled ? "bg-white/80 shadow-md backdrop:blur-md" : "bg-transparent shadow-none"
       }`}
       style={{
         transitionProperty: "background-color, box-shadow, opacity, transform",
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
           <img src={logo} alt="Emporis logo" className="w-8 h-8 object-contain" />
           <h1
             className={`text-lg sm:text-xl font-semibold tracking-wide transition-colors duration-500 ${
-              scrolled ? "text-gray-900" : "text-black"
+              scrolled ? "text-gray-900" : "text-white"
             }`}
           >
             Emporis Health Care
@@ -36,8 +36,8 @@ const Navbar: React.FC = () => {
             <li key={link}>
                 <a
                 href={`#${link.toLowerCase()}`}
-                className={`transition-colors duration-300 hover:text-cyan-500 ${
-                  scrolled ? "text-gray-700" : "text-black"
+                className={`transition-colors duration-300 hover:text-cyan-500 text-lg font-semibold ${
+                  scrolled ? "text-black" : "text-white"
                 }`}
               >
                 {link}

@@ -52,40 +52,40 @@ const EmbiotinSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-cyan-700 mb-3">EMBIOTIN™: Formula at a Glance</h3>
             <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
               <table className="min-w-full divide-y divide-slate-200">
-                <thead className="bg-slate-50">
+                <thead className="bg-cyan-100">
                   <tr>
                     <th scope="col" className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Ingredient</th>
                     <th scope="col" className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Dosage per Tablet</th>
                     <th scope="col" className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Primary Role in Hair Revitalization</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200">
-                  <tr className="odd:bg-white even:bg-slate-50">
+                <tbody className="divide-y divide-cyan-200">
+                  <tr className="odd:bg-white even:bg-cyan-50/10">
                     <td className="px-4 py-3 text-slate-800">Calcium Pantothenate</td>
                     <td className="px-4 py-3 text-slate-800">100mg</td>
                     <td className="px-4 py-3 text-slate-700">The Follicle Nourisher</td>
                   </tr>
-                  <tr className="odd:bg-white even:bg-slate-50">
+                  <tr className="odd:bg-white even:bg-cyan-50/10">
                     <td className="px-4 py-3 text-slate-800">N-Acetylcysteine (NAC)</td>
                     <td className="px-4 py-3 text-slate-800">50mg</td>
                     <td className="px-4 py-3 text-slate-700">The Cellular Guardian</td>
                   </tr>
-                  <tr className="odd:bg-white even:bg-slate-50">
+                  <tr className="odd:bg-white even:bg-cyan-50/10">
                     <td className="px-4 py-3 text-slate-800">Zinc Oxide (as Elemental Zinc)</td>
                     <td className="px-4 py-3 text-slate-800">22.5mg</td>
                     <td className="px-4 py-3 text-slate-700">The Growth & Repair Catalyst</td>
                   </tr>
-                  <tr className="odd:bg-white even:bg-slate-50">
+                  <tr className="odd:bg-white even:bg-cyan-50/10">
                     <td className="px-4 py-3 text-slate-800">Biotin</td>
                     <td className="px-4 py-3 text-slate-800">10mg (10,000mcg)</td>
                     <td className="px-4 py-3 text-slate-700">The Keratin Architect</td>
                   </tr>
-                  <tr className="odd:bg-white even:bg-slate-50">
+                  <tr className="odd:bg-white even:bg-cyan-50/10">
                     <td className="px-4 py-3 text-slate-800">Cupric Oxide (as Elemental Copper)</td>
                     <td className="px-4 py-3 text-slate-800">3mg</td>
                     <td className="px-4 py-3 text-slate-700">The Structural & Pigment Anchor</td>
                   </tr>
-                  <tr className="odd:bg-white even:bg-slate-50">
+                  <tr className="odd:bg-white even:bg-cyan-50/10">
                     <td className="px-4 py-3 text-slate-800">Sodium Selenite (as Elemental Selenium)</td>
                     <td className="px-4 py-3 text-slate-800">65mcg</td>
                     <td className="px-4 py-3 text-slate-700">The Scalp Health Regulator</td>

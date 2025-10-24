@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
+// import Navbar from "./components/Navbar";
+// import Hero from "./components/Hero";
+// import About from "./components/About";
 import Products from "./components/Products";
 import EmbiotinSection from "./components/EmbiotinSection";
 import Edge from "./components/Edge";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
+
+const NavbarLazy = React.lazy(() => import("./components/Navbar"));
+const AboutLazy = React.lazy(() => import("./components/About"));
+const HeroLazy = React.lazy(()=> import("./components/Hero"))
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,11 +42,12 @@ const App: React.FC = () => {
 
   return (
     <div className="font-sans text-slate-800 bg-white">
-      <Navbar />
-      <Hero />
-      <About />
+      <NavbarLazy />
+      <HeroLazy />
+
       <Products />
   <EmbiotinSection />
+        <AboutLazy />
       <Edge />
       <Contact />
       <Footer />

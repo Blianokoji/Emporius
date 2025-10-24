@@ -57,107 +57,80 @@ const Products: React.FC = () => {
   }, []);
 
   return (
-    <section id="products" className="bg-cyan-50 fade-up">
-      <div className="flex flex-col w-full min-h-[90vh] md:min-h-screen">
-        {/* Top bar spanning full width (not vertically) */}
-        <div className="px-6 md:px-8 py-10 text-center bg-cyan-900 text-white">
-          <h2 className="text-5xl font-extrabold">Our Products</h2>
+    <section id="products" className="w-full bg-cyan-900 fade-up">
+      <div className="w-full flex flex-col min-h-[90vh] md:min-h-[85vh]">
+        {/* Top bar spanning full width */}
+        <div className="w-full pt-15 px-6 md:px-8 py-10 text-center bg-cyan-900 text-white">
+          <h2 className="text-4xl md:text-5xl font-extrabold">Our Products</h2>
         </div>
 
-        {/* Remaining area: split into three equal panels */}
-        <div className="flex-1 flex flex-col md:flex-row w-full gap-0">
-          {products.map((p, i) => {
-          const first = (
-            <div
-              className="absolute inset-0 w-full h-full flex items-center justify-center p-6"
-              aria-hidden
-            >
-              <img
-                src={p.image}
-                alt={p.name}
-                className="pointer-events-none absolute inset-0 w-full h-full object-cover object-center"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-              
-              <div className="relative z-10 text-center">
-                <h3 className="text-3xl font-bold text-white drop-shadow-md transition-opacity duration-300 group-hover:opacity-0 group-data-[active=true]:opacity-0">
-                  {p.name}
-                </h3>
-              </div>
-            </div>
-          );
+        {/* Full-width product grid: spaced tiles, taller images, content slides into card on hover */}
+        <div className="w-full py-10">
+          <div className="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {products.map((p, i) => {
+              const first = (
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center" aria-hidden>
+                  <img src={p.image} alt={p.name} className="pointer-events-none absolute inset-0 w-full h-full object-cover object-center" />
+                </div>
+              );
 
-            const second = (
-              <div className="absolute inset-0 w-full h-full">
-                {/* Use GlassCard for dynamic contrast on overlay */}
-                <div className="absolute inset-0">
-                  <div className="relative h-full w-full rounded-none">
-                    {/* Inline glass with adjustable contrast; lighter base to ensure readability on images */}
-                    <div className="relative h-full w-full bg-white/60 backdrop-blur-lg border border-cyan-200/50 text-raise">
-                      <div className="relative z-10 flex h-full w-full p-7 md:p-8">
-                        <div className="w-full flex flex-col justify-between">
-                          <div>
-                            <div className="flex items-center gap-3">
-                              <h3 className="text-3xl font-extrabold text-cyan-700">{p.name}</h3>
-                            </div>
-                            <p className="text-gray-700 mt-3 text-base md:text-lg">{p.tagline}</p>
-                            <p className="text-gray-700 mt-4 text-sm md:text-base leading-relaxed">{p.desc}</p>
-                          </div>
-                          <div className="mt-6 flex justify-end">
-                            {p.comingSoon ? (
-                              <button
-                                className="px-4 py-2 bg-gray-300 text-gray-600 rounded-full cursor-not-allowed shadow-inner"
-                                disabled
-                                aria-disabled
-                                title="This product is coming soon"
-                              >
-                                Coming Soon
-                              </button>
-                            ) : p.anchor ? (
-                              <a
-                                href={`#${p.anchor}`}
-                                className="px-5 py-2.5 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition"
-                              >
-                                Learn More
-                              </a>
-                            ) : (
-                              <button className="px-5 py-2.5 bg-cyan-600 text-white rounded-full hover:bg-cyan-500 transition">
-                                Learn More
-                              </button>
-                            )}
-                          </div>
+              const second = (
+                <div className="absolute inset-0 w-full h-full">
+                  <div className="absolute inset-0">
+                    <div className="relative h-full w-full">
+                      {/* overlay content slides up into view on hover or touch */}
+                      <div className="absolute left-0 right-0 bottom-0 transform translate-y-full group-hover:translate-y-0 group-data-[active=true]:translate-y-0 transition-transform duration-300 ease-out bg-white/95 backdrop-blur-sm border-t border-cyan-100/40 text-black p-6">
+                        <p className="text-md font-semibold text-black">{p.tagline}</p>
+                        <p className="text-sm text-black mt-2">{p.desc}</p>
+                        <div className="mt-4 flex justify-end">
+                          {p.comingSoon ? (
+                            <button className="px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-sm cursor-not-allowed" disabled>
+                              Coming Soon
+                            </button>
+                          ) : p.anchor ? (
+                            <a href={`#${p.anchor}`} className="px-3 py-1.5 bg-cyan-600 text-white rounded-full text-sm">
+                              Learn More
+                            </a>
+                          ) : (
+                            <button className="px-3 py-1.5 bg-cyan-600 text-white rounded-full text-sm">Learn More</button>
+                          )}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
+              );
 
-            return (
-              <div
-                key={i}
-                className="w-full flex-none h-[420px] md:flex-1 md:h-auto md:min-h-0"
-              >
-                <PixelTransition
-                  className="w-full h-full"
-                  firstContent={first}
-                  secondContent={second}
-                  aspectRatio={'120%'}
-                  pixelColor={'#e6f7ff'}
-                  animationStepDuration={0.35}
-                  fillHeight
-                  rounded={false}
-                  bordered={false}
-                  active={isTouch ? i === activeIndex : undefined}
-                  onActiveChange={(next) => {
-                    if (!isTouch) return;
-                    setActiveIndex(next ? i : null);
-                  }}
-                />
-              </div>
-            );
-          })}
+              return (
+                <div key={i} className="group flex flex-col items-start">
+                  <div className="w-full bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div className="relative w-full h-80 md:h-96 lg:h-[520px]">
+                      <PixelTransition
+                        className="w-full h-full"
+                        firstContent={first}
+                        secondContent={second}
+                        pixelColor={'#e6f7ff'}
+                        animationStepDuration={0.35}
+                        fillHeight={false}
+                        rounded={false}
+                        bordered={false}
+                        active={isTouch ? i === activeIndex : undefined}
+                        onActiveChange={(next) => {
+                          if (!isTouch) return;
+                          setActiveIndex(next ? i : null);
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-4 px-2 md:px-3">
+                    <h3 className="text-lg md:text-2xl text-white font-bold ">{p.name}</h3>
+                    <p className="text-sm md:text-base text-gray-100 mt-1">{p.tagline}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -43,13 +43,12 @@ const About: React.FC = () => {
         gradientColor="rgba(0,0,0,0.25)"
       >
         <div className="relative z-10 mx-auto px-6 py-20 max-w-6xl space-y-10">
-          <div>
-            <h2 className="text-4xl font-bold text-white drop-shadow-md text-raise">
+          <div className="mb-10">
+            <h2 className="text-4xl font-bold text-black drop-shadow-md text-raise">
               Where Quality Meets Care
             </h2>
-            <p className="max-w-3xl mx-auto mt-4 text-gray-100/90 leading-relaxed text-raise">
-              Founded in Kochi, Kerala, by five partners with deep expertise across the healthcare ecosystem,
-              Emporis Health Care stands for uncompromising quality, affordability, and continuous innovation.
+            <p className="max-w-3xl mx-auto mt-4 text-black-100/90 leading-relaxed text-raise">
+              Emporis Health Care - a pharmaceutical company established with a vision to deliver high-quality, cost-effective, and accessible healthcare products that enhance everyday wellness.
             </p>
           </div>
 
@@ -78,11 +77,15 @@ const About: React.FC = () => {
 
           {/* Vision & Mission with same background and low-opacity glass */}
           <div className="grid md:grid-cols-2 gap-8 items-start mt-6">
-            <GlassCard className="text-left text-raise">
+            <GlassCard className="text-left text-raise ">
               <h2 className="text-3xl font-bold mb-4 text-cyan-700">Vision</h2>
               <p className="leading-relaxed">
                 To be a trusted name in global healthcare, known for unmatched quality, innovation, and ethical
-                excellence — improving lives with accessible and effective wellness products.
+                excellence — improving lives with accessible and effective wellness products. We aim to set new
+                benchmarks in safety and transparency, foster enduring partnerships with clinicians and communities,
+                and continually invest in research to bring science-backed solutions to everyday health. Guided by
+                empathy and integrity, our vision is a healthier world where better outcomes are within reach for
+                everyone.
               </p>
             </GlassCard>
 
