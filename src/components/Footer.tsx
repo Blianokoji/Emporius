@@ -27,9 +27,6 @@ const Footer: React.FC = () => {
         {/* Bottom meta */}
         <div className="mt-6 border-t border-white/10 pt-6 text-center">
           <p>© 2025 Emporis Health Care. All rights reserved.</p>
-          <p className="text-sm mt-2 opacity-80">
-            Designed by <span className="font-semibold">Blessen Eby</span> 🌿
-          </p>
         </div>
       </div>
     </footer>
