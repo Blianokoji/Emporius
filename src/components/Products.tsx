@@ -15,23 +15,23 @@ interface Product {
 
 const products: Product[] = [
   {
-    name: 'Embiotin™️',
+    name: 'Embiotin™',
     tagline: 'Advanced Hair Growth Supplement',
-    desc: 'A premium biotin-based formulation fortified with vitamins and minerals. Strengthens hair from the root, enhances shine, and promotes natural regrowth.',
+    desc: 'A premium biotin-based nutritional formulation fortified with essential vitamins and minerals. Embiotin™ strengthens hair from the root, enhances shine, and promotes healthy regrowth — helping restore confidence naturally.',
     image: embiotinImg,
     anchor: 'embiotin',
   },
   {
-    name: 'Emflat™️',
-    tagline: 'Simethicone Syrup for Digestive Comfort',
-    desc: "Provides fast, gentle relief from gas, bloating, and discomfort. Its simethicone-based formula ensures safe digestive comfort for all ages.",
+    name: 'Emflat™',
+    tagline: 'Simethicone Syrup for Abdominal discomfort',
+    desc: "Emflat™ provides fast, gentle relief from gas, bloating, and abdominal discomfort. Its simethicone-based formula is safe for all age groups, ensuring effective digestive comfort for the whole family.",
     image: emflatImg,
     comingSoon: true,
   },
   {
-    name: 'Emprotino™️',
+    name: 'Emprotino™',
     tagline: 'Advanced Whey Protein Formula',
-    desc: 'Scientifically developed whey protein supplement designed for recovery, muscle maintenance, and immune support.',
+    desc: 'A scientifically developed whey protein supplement designed to meet increased protein requirements in special populations.',
     image: emproteinImg,
     comingSoon: true,
   },
