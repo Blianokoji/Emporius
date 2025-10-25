@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emporishealthcare.com/sitemap.xml
