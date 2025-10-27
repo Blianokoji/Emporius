@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <ul className="hidden md:flex space-x-8">
-          {["Home", "About", "Products", "Contact"].map((link) => (
+          {["Home", "Products", "About", "Contact"].map((link) => (
             <li key={link}>
                 <a
                 href={`#${link.toLowerCase()}`}
