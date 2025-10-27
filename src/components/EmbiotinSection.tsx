@@ -1,6 +1,6 @@
 import React from "react";
 import MediaFeature from "./MediaFeature";
-import embiotin2 from "../assets/embiotin_2.jpg";
+import embiotin2 from "../assets/embiotin_2.webp";
 
 const EmbiotinSection: React.FC = () => {
   return (

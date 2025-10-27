@@ -1,9 +1,9 @@
 import React from "react";
 import GridMotion from "./GridMotion";
 import GlassCard from "./GlassCard";
-import img1 from "../assets/grid_img_1.jpg";
-import img2 from "../assets/grid_img_2.jpg";
-import img3 from "../assets/grid_img_3.jpg";
+import img1 from "../assets/grid_img_1.webp";
+import img2 from "../assets/grid_img_2.webp";
+import img3 from "../assets/grid_img_3.webp";
 
 const About: React.FC = () => {
   return (

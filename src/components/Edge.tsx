@@ -1,6 +1,6 @@
 import React from "react";
 import SpotlightCard from "./SpotlightCard";
-import edgeImg from "../assets/emporis_edge.jpg";
+import edgeImg from "../assets/emporis_edge.webp";
 
 const Edge: React.FC = () => {
   return (

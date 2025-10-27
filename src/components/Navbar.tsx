@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from '../assets/emporis_logo.png';
+import logo from '../assets/emporis_logo.webp';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);

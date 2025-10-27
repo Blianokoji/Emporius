@@ -1,6 +1,6 @@
 import React from "react";
 import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
-import logo from "../assets/emporis_logo.png";
+import logo from "../assets/emporis_logo.webp";
 
 const Contact: React.FC = () => {
   return (

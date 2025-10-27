@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PixelTransition from './PixelTransition';
-import embiotinImg from '../assets/embiotin.jpg';
-import emflatImg from '../assets/emflat.jpg';
-import emproteinImg from '../assets/emprotein.jpg';
+import embiotinImg from '../assets/embiotin.webp';
+import emflatImg from '../assets/emflat.webp';
+import emproteinImg from '../assets/emprotein.webp';
 
 interface Product {
   name: string;

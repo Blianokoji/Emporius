@@ -1,5 +1,5 @@
 import React from "react";
-import labImg from "../assets/lab_img.jpg";
+import labImg from "../assets/lab_img.webp";
 
 const Hero: React.FC = () => {
   const handleNavigateProducts = () => {
